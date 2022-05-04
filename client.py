@@ -6,8 +6,8 @@ def main():
     url = "http://localhost:4000/jsonrpc"
 
     payload = {
-        "method": "callPortMethod",
-        "params": ["Advantech", "PCI-1602B", "RS422", "connect"],
+        "method": "enumirateBoard",
+        "params": [""],
         "jsonrpc": "2.0",
         "id": 1,
     }
