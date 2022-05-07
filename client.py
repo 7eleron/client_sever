@@ -7,7 +7,7 @@ def main():
 
     payload = {
         "method": "enumirateBoard",
-        "params": [""],
+        "params": [],
         "jsonrpc": "2.0",
         "id": 1,
     }
