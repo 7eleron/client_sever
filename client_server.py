@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets, QtCore
-import clientui
+import clientgui_2
 
 import requests
 import json
@@ -18,96 +18,71 @@ def sender(method, params=None):
     return response
 
 
-class ExampleApp(QtWidgets.QMainWindow, clientui.Ui_MainWindow):
+class ExampleApp(QtWidgets.QMainWindow, clientgui_2.Ui_MainWindow):
+
     def __init__(self):
         super(ExampleApp, self).__init__()
         self.setupUi(self)
-        self.pushButton_2.pressed.connect(self.send_request_EnumirateBoard)
-        self.pushButton_3.pressed.connect(self.send_request_EnumirateBoardPorts)
-        self.pushButton_4.pressed.connect(self.send_request_GetBoardOfType)
-        self.pushButton_5.pressed.connect(self.send_request_GetBoardPortsOfType)
-        self.pushButton_6.pressed.connect(self.send_request_EnumiratePortCapabilities)
-        self.pushButton_7.pressed.connect(self.send_request_CallPortMethod)
+        self.EnumirateBoard.pressed.connect(self.send_request_EnumirateBoard)
+        self.CallPortMethod.pressed.connect(self.send_request_CallPortMethod)
+        self.name_sereals = []
+        self.description = sender('descriptions').get('result')
 
+        description = self.description
+        Name_sereal = self.Name_sereal
+        Port_type = self.Port_type
+        Port = self.Port
+
+        def port_type_change():
+            name_sereal = Name_sereal.currentText()
+            for x in description:
+                if x.get('name_sereal') == name_sereal:
+                    Port_type.clear()
+                    Port_type.addItems(x.get('type port'))
+        self.Name_sereal.currentTextChanged.connect(port_type_change)
+
+        def port_change():
+            try:
+                port_type = Port_type.currentText()
+                name_sereal = Name_sereal.currentText()
+                for x in description:
+                    if x.get('name_sereal') == name_sereal:
+                        count_port = x.get('count port type')
+                        Port.clear()
+                        Port.addItems(count_port.get(port_type))
+            except:
+                pass
+        self.Port_type.currentTextChanged.connect(port_change)
+        self.Method.addItems(['Send signal', 'Stop signal'])
+    
     def send_request_EnumirateBoard(self):
         get_response = sender('enumirateBoard')
         try:
             result = get_response.get('result')
-            for name in result:
-                self.textBrowser.append(name)
-            self.textBrowser.append('')
-        except:
-            pass
-
-    def send_request_EnumirateBoardPorts(self):
-        name_serial = self.lineEdit.text()
-        try:
-            get_response = sender('enumirateBoardPorts', [name_serial])
-            result = get_response.get('result')
-            ports = f'{result[0]}'
-            for i in result[1:]:
-                ports += f',  {i}'
-            self.textBrowser.append(f'{name_serial} - {ports}')
-            self.textBrowser.append('')
-            self.lineEdit.clear()
-        except:
-            pass
-
-    def send_request_GetBoardOfType(self):
-        name = self.lineEdit_4.text()
-        try:
-            get_response = sender('getBoardOfType', [name])
-            result = get_response.get('result')
-            for name_sereal in result:
-                self.textBrowser.append(name_sereal)
-            self.textBrowser.append('')
-            self.lineEdit_4.clear()
-        except:
-            pass
-
-    def send_request_GetBoardPortsOfType(self):
-        name_serial = self.lineEdit_6.text()
-        port = self.lineEdit_5.text()
-        try:
-            get_response = sender('getBoardPortsOfType', [name_serial, port])
-            result = get_response.get('result')
-            self.textBrowser.append(f'{name_serial},  {port} - {result}')
-            self.textBrowser.append('')
-            self.lineEdit_6.clear()
-            self.lineEdit_5.clear()
-        except:
-            pass
-
-    def send_request_EnumiratePortCapabilities(self):
-        name_serial = self.lineEdit_8.text()
-        port = self.lineEdit_7.text()
-        try:
-            get_response = sender('enumiratePortCapabilities', [name_serial, port])
-            result = get_response.get('result')
-            methods = f'{result[0]}  '
-            for method in result[1:]:
-                methods += f', {method}'
-            self.textBrowser.append(f'{name_serial},  {port} - {methods}')
-            self.textBrowser.append('')
-            self.lineEdit_8.clear()
-            self.lineEdit_7.clear()
+            for board in result:
+                self.name_sereals.append(board.get('name_sereal'))
+                description = f"Name: {board.get('name')}" \
+                              f"\nSereal: {board.get('sereal')}" \
+                              f"\nType port: {board.get('type port')}" \
+                              f"\nCount port type: {board.get('count port type')}"
+                self.textBrowser.append(description)
+                self.textBrowser.append('')
+            self.Name_sereal.addItems(self.name_sereals)
         except:
             pass
 
     def send_request_CallPortMethod(self):
-        name_serial = self.lineEdit_9.text()
-        port = self.lineEdit_10.text()
-        method = self.lineEdit_3.text()
+        name_serial = self.Name_sereal.currentText()
+        port = self.Port.currentText()
+        method = self.Method.currentText()
         try:
             get_response = sender('callPortMethod', [name_serial, port, method])
             result = get_response.get('result')
             self.textBrowser.append(f'{name_serial},  {port} - {result}')
             self.textBrowser.append('')
-            self.lineEdit_9.clear()
-            self.lineEdit_10.clear()
-            self.lineEdit_3.clear()
         except:
             pass
+
 
 app = QtWidgets.QApplication([])
 window = ExampleApp()

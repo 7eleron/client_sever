@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>579</width>
+    <height>348</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Client-Server</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>12</y>
+      <width>541</width>
+      <height>191</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EnumirateBoard">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>203</y>
+      <width>555</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enumirate Board</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="CallPortMethod">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>290</y>
+      <width>555</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Call Port Method</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="Name_sereal">
+    <property name="geometry">
+     <rect>
+      <x>17</x>
+      <y>267</y>
+      <width>190</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="Port_type">
+    <property name="geometry">
+     <rect>
+      <x>203</x>
+      <y>267</y>
+      <width>151</width>
+      <height>32</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="Port">
+    <property name="geometry">
+     <rect>
+      <x>349</x>
+      <y>267</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="Method">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>267</y>
+      <width>120</width>
+      <height>32</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="GetBoardOfType_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>232</y>
+      <width>191</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200, 200, 200);</string>
+    </property>
+    <property name="text">
+     <string>Board Of Type</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="GetBoardOfType_3">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>232</y>
+      <width>151</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200, 200, 200);</string>
+    </property>
+    <property name="text">
+     <string>Enumirate
+Board Ports</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="GetBoardOfType_4">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>232</y>
+      <width>111</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200, 200, 200);</string>
+    </property>
+    <property name="text">
+     <string>Board Ports
+Of Type</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="GetBoardOfType_5">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>232</y>
+      <width>109</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200, 200, 200);</string>
+    </property>
+    <property name="text">
+     <string>Port
+Capabilities</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
