@@ -25,20 +25,14 @@ class Board:
         self.port_method = methods
 
 
-# JSON-RPC methods
 @dispatcher.add_method
-def descriptions():
+def enumirateBoard(*args, **kwargs):
     return Board.all_bords
 
 
 @dispatcher.add_method
-def enumirateBoard():
-    return Board.all_bords
+def callPortMethod(method):
 
-
-@dispatcher.add_method
-def callPortMethod(name_sereal, port, method):
-    object_board = eval(name_sereal)
     if method == 'Send signal':
         return 'Signal sent!'
     elif method == 'Stop signal':
