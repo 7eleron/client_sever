@@ -25,6 +25,7 @@ class Board:
         self.port_method = methods
 
 
+# JSON-RPC methods
 @dispatcher.add_method
 def descriptions():
     return Board.all_bords
@@ -52,6 +53,7 @@ def application(request):
 
 
 if __name__ == '__main__':
+    # Make boards
     Advantech_PCI_1602 = Board('Advantech', 'PCI_1602', ['RS422', 'RS485'],
                                {'RS422': ['RS422_1'], 'RS485': ['RS485_1']})
     Advantech_PCI_1602.port_method({'RS422': ['send signal', 'stop signal'],
@@ -65,5 +67,7 @@ if __name__ == '__main__':
 
     MOXA_CP_102E = Board('MOXA', 'CP_102E', ['RS232'], {'RS232': ['RS232_1', 'RS232_2']})
     MOXA_CP_102E.port_method({'RS232': ['send signal', 'stop signal']})
+
+    # Start server
     run_simple('localhost', 4000, application)
 

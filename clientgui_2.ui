@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>579</width>
-    <height>348</height>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>18</x>
+      <x>20</x>
       <y>12</y>
       <width>541</width>
       <height>191</height>
@@ -27,7 +27,7 @@
    <widget class="QPushButton" name="EnumirateBoard">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>13</x>
       <y>203</y>
       <width>555</width>
       <height>32</height>
@@ -170,6 +170,19 @@ Capabilities</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Save_xml">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>312</y>
+      <width>555</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save a description in XML</string>
     </property>
    </widget>
   </widget>

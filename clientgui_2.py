@@ -14,14 +14,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(579, 348)
+        MainWindow.resize(579, 370)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
-        self.textBrowser.setGeometry(QtCore.QRect(18, 12, 541, 191))
+        self.textBrowser.setGeometry(QtCore.QRect(20, 12, 541, 191))
         self.textBrowser.setObjectName("textBrowser")
         self.EnumirateBoard = QtWidgets.QPushButton(self.centralwidget)
-        self.EnumirateBoard.setGeometry(QtCore.QRect(10, 203, 555, 32))
+        self.EnumirateBoard.setGeometry(QtCore.QRect(13, 203, 555, 32))
         self.EnumirateBoard.setObjectName("EnumirateBoard")
         self.CallPortMethod = QtWidgets.QPushButton(self.centralwidget)
         self.CallPortMethod.setGeometry(QtCore.QRect(13, 290, 555, 32))
@@ -59,6 +59,9 @@ class Ui_MainWindow(object):
         self.GetBoardOfType_5.setStyleSheet("background-color: rgb(200, 200, 200);")
         self.GetBoardOfType_5.setAlignment(QtCore.Qt.AlignCenter)
         self.GetBoardOfType_5.setObjectName("GetBoardOfType_5")
+        self.Save_xml = QtWidgets.QPushButton(self.centralwidget)
+        self.Save_xml.setGeometry(QtCore.QRect(13, 312, 555, 32))
+        self.Save_xml.setObjectName("Save_xml")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -79,3 +82,4 @@ class Ui_MainWindow(object):
 "Of Type"))
         self.GetBoardOfType_5.setText(_translate("MainWindow", "Port\n"
 "Capabilities"))
+        self.Save_xml.setText(_translate("MainWindow", "Save a description in XML"))
